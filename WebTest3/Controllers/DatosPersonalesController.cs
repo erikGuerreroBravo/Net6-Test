@@ -8,14 +8,15 @@ namespace WebTest3.Controllers
         [HttpGet]
         public IActionResult RegistrarPersona()
         {
-            
+            TempData["Direccion"] = TempData["DireccionTemp"];
             return View();
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
         public IActionResult RegistrarPersona([Bind(include: "Nombre,ApellidoPaterno,ApellidoMaterno")] Persona persona)
         {
-            TempData["PersonaTemp"] = persona.Nombre + " " + persona.ApellidoPaterno + " " + persona.ApellidoMaterno;
+            string direccion = TempData["Direccion"].ToString();
+            TempData["PersonaTemp"] = persona.Nombre + " " + persona.ApellidoPaterno + " " + persona.ApellidoMaterno +" "+ direccion;
             return RedirectToAction("Index","Manager");
         }
     }
