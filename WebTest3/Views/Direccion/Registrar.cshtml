@@ -1,0 +1,54 @@
+﻿@model WebTest3.Models.Direccion
+
+@{
+    
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="conatiner">
+    <div class="col-6">
+        <div class="card"> 
+         <div class="card-header">
+            <div class="card-title">Datos de la Dirección</div>
+        </div>
+         <div class="card-body">
+             <div class="row">
+                 <div class="col-md-12">
+                     <form asp-action="Registrar" asp-controller="Direccion">
+                     <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+                       <div class="form-group">
+                        <label asp-for="Calle" class="control-label" ></label>
+                        <input asp-for="Calle" class="form-control" required id="Calle" />
+                        <span asp-validation-for="Calle" class="text-danger"></span>
+                       </div>
+                        <div class="form-group">
+                            <label asp-for="Colonia" class="control-label"></label>
+                            <input asp-for="Colonia" class="form-control"required />
+                            <span asp-validation-for="Colonia" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="CodigoPostal" class="control-label"></label>
+                            <input asp-for="CodigoPostal" class="form-control" />
+                            <span asp-validation-for="CodigoPostal" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="NumeroInterior" class="control-label"></label>
+                            <input asp-for="NumeroInterior" class="form-control" />
+                            <span asp-validation-for="NumeroInterior" class="text-danger"></span>
+                        </div>
+                        <hr />
+                        <div class="form-group">
+                            <input type="submit" value="Registrar" class="btn btn-success" id="btnGuardar" />
+                        </div>
+
+                     </form>
+                 </div>
+             </div>
+         </div>
+    </div>
+    </div>
+</div>
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<script src="~/js/validate-direccion.js"></script>
+
+
